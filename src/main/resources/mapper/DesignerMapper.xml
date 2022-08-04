@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.design.hice.mapper.DesignerMapper">
+
+    <select id="selectByParam" resultType="com.design.hice.entity.Designer">
+        SELECT * FROM designer
+        <where>
+            <if test = "designerParam.name!=null and designerParam.name!=''">
+                and name = #{designerParam.name}
+            </if>
+            <if test = "designerParam.sex!=null">
+                and sex = #{designerParam.sex}
+            </if>
+        </where>
+    </select>
+
+</mapper>

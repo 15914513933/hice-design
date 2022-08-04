@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.design.hice.mapper.DesignWorkMapper">
+    <select id="queryDesignWork" resultType="com.design.hice.vo.DesignWorkVo">
+        SELECT d.name designerName,c.name as categoryName,c.code as categoryCode,w.*
+        FROM design_work w
+        JOIN design_work_category c ON w.category_id = c.id
+        JOIN  designer d ON w.designer_id = d.id
+        <where>
+            <if test="designWorkQueryParam.designerName!=null and designWorkQueryParam.designerName!=''">
+                AND d.name LIKE CONCAT(CONCAT('%', #{designWorkQueryParam.designerName}),'%')
+            </if>
+            <if test="designWorkQueryParam.categoryId!=null">
+                AND w.category_id = #{designWorkQueryParam.categoryId}
+            </if>
+            <if test="designWorkQueryParam.designerId!=null">
+                AND w.designer_id = #{designWorkQueryParam.designerId}
+            </if>
+            <if test="designWorkQueryParam.recommend!=null">
+                AND w.recommend = #{designWorkQueryParam.recommend}
+            </if>
+        </where>
+        ORDER BY w.sort desc
+    </select>
+
+
+</mapper>
