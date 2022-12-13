@@ -10,7 +10,7 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: chenkangjie/hice:latest
-      pushRemote: true
+      registry: 127.0.0.1:34594
 - name: Deploy
   steps:
   - applyYamlConfig:
