@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: hice-design
-          image: ckj/hice-design:latest
+          image: chenkangjie/hice:latest
           ports:
             - containerPort: 8081

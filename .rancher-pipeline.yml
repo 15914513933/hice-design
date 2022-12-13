@@ -9,7 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: hice-design:latest
+      tag: chenkangjie/hice:latest
       pushRemote: true
 - name: Deploy
   steps:
