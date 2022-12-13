@@ -10,6 +10,7 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: hice-design:latest
+      pushRemote: true
 - name: Deploy
   steps:
   - applyYamlConfig:
